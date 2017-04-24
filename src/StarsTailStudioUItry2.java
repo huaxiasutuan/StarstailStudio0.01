@@ -5,13 +5,14 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
 
-    public class StarsTailStudioUItry2 {
+    public class StarsTailStudioUItry2 implements ActionListener{
 
-    public StarsTailStudioUItry2(){
+        JLabel ZTLl = null;
+        String ZTLstring = "";
+        JButton b1 = null,b2 = null,b3 = null;
+
+        public StarsTailStudioUItry2(){
 
         JButton b;
         GridBagConstraints c;
@@ -42,6 +43,7 @@ import javax.swing.*;
         ipady = 0;
         c = new GridBagConstraints(gridx,gridy,gridwidth,gridheight,weightx,weighty,anchor,fill,inset,ipadx,ipady);
         gridbag.setConstraints(b,c);
+        b.addActionListener(this);
         contentpane.add(b);
 
         b = new JButton("检测星点");
@@ -58,6 +60,7 @@ import javax.swing.*;
         ipady = 0;
         c = new GridBagConstraints(gridx,gridy,gridwidth,gridheight,weightx,weighty,anchor,fill,inset,ipadx,ipady);
         gridbag.setConstraints(b,c);
+        b.addActionListener(this);
         contentpane.add(b);
 
         b = new JButton("计算位移");
@@ -172,7 +175,7 @@ import javax.swing.*;
         gridbag.setConstraints(b,c);
         contentpane.add(b);
 
-        b = new JButton("状态栏");
+        ZTLl = new JLabel("状态栏");
         gridx = 2;
         gridy = 8;
         gridwidth = 1;
@@ -185,8 +188,8 @@ import javax.swing.*;
         ipadx = 50;
         ipady = 50;
         c = new GridBagConstraints(gridx,gridy,gridwidth,gridheight,weightx,weighty,anchor,fill,inset,ipadx,ipady);
-        gridbag.setConstraints(b,c);
-        contentpane.add(b);
+        gridbag.setConstraints(ZTLl,c);
+        contentpane.add(ZTLl);
 
         f.setTitle("Starstail-Studio");
         f.setSize(new Dimension(1000,800));
@@ -202,11 +205,47 @@ import javax.swing.*;
 
     }
 
+    public void actionPerformed(ActionEvent e){
+            if((e.getActionCommand()).equals("打开图像")){
+               // JFrame DKTXf = new JFrame("打开图像");
+               // DKTXf.setSize(800,800);
+               // DKTXf.show();
+                ZTLstring = ZTLstring + "打开图像";
+                ZTLl.setText(ZTLstring);
 
-    public static void main(String args[]){
+             }
+            if((e.getActionCommand()).equals("检测星点")) {
+                ZTLstring = ZTLstring + "\n检测星点";
+                ZTLl.setText(ZTLstring);
+            }
+             if((e.getActionCommand()).equals("计算位移")) {
+                ZTLstring = ZTLstring + "计算位移";
+                ZTLl.setText(ZTLstring);
+             }
+            if((e.getActionCommand()).equals("计算坏项")){
+                ZTLstring = ZTLstring + "计算坏项";
+                ZTLl.setText(ZTLstring);
 
-        new StarsTailStudioUItry2();
+            }
 
     }
+
+    /*public void actionPerformed(ActionEvent e){
+        if(e.getSource()==b1){
+            ZTLstring = ZTLstring + "打开图像";
+            ZTLl.setText(ZTLstring);
+        }
+        if(e.getSource()==b2){
+            ZTLstring = ZTLstring + "检测星点";
+            ZTLl.setText(ZTLstring);
+        }
+    }*/
+
+
+        public static void main(String args[]){
+
+            new StarsTailStudioUItry2();
+
+        }
 }
 
