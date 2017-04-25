@@ -10,7 +10,7 @@ public class JTabbedPane1 {
         JFrame f = new JFrame("lalla");
         Container cont = f.getContentPane();
 
-        JLabel label1 = new JLabel(new ImageIcon(".\\picture\\_ZZH9212.jpg"));
+        JLabel label1 = new JLabel(new ImageIcon(".\\picture\\Starstailmid100.jpg"));
         JPanel panel1 = new JPanel();
         panel1.add(label1);
 
@@ -27,7 +27,7 @@ public class JTabbedPane1 {
         panel3.add(label3);
 
         JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.BOTTOM);
-        tabbedPane.addTab("picture",new ImageIcon(".\\picture\\_ZZH9239.jpg"),panel1,"tuan");
+        tabbedPane.addTab("picture",new ImageIcon(".\\picmini\\Starstailsmall100.jpg"),panel1,"tuan");
         tabbedPane.addTab("L2",panel2);
         tabbedPane.addTab("L3",null,panel3,"label");
 

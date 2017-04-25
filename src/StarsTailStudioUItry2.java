@@ -3,7 +3,9 @@
  */
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 import javax.swing.*;
+import javax.swing.filechooser.FileFilter;
 
 
     public class StarsTailStudioUItry2 implements ActionListener{
@@ -11,6 +13,9 @@ import javax.swing.*;
         JLabel ZTLl = null;
         String ZTLstring = "";
         JButton b1 = null,b2 = null,b3 = null;
+        JFileChooser fileChooser = null;
+        JLabel DKTXlabel = null;
+        JFrame f = null;
 
         public StarsTailStudioUItry2(){
 
@@ -20,7 +25,7 @@ import javax.swing.*;
         double weightx,weighty;
         Insets inset;
 
-        JFrame f = new JFrame();
+        f = new JFrame();
 
         GridBagLayout gridbag = new GridBagLayout();
         Container contentpane = f.getContentPane();
@@ -212,6 +217,17 @@ import javax.swing.*;
                // DKTXf.show();
                 ZTLstring = ZTLstring + "打开图像";
                 ZTLl.setText(ZTLstring);
+                fileChooser = new JFileChooser("c:\\winnt");
+                fileChooser.addChoosableFileFilter(new JAVAFileFilter("jpg"));
+                fileChooser.addChoosableFileFilter(new JAVAFileFilter("tif"));
+                int result = fileChooser.showOpenDialog(f);
+                if(result == JFileChooser.APPROVE_OPTION){
+                    File file = fileChooser.getSelectedFile();
+                    DKTXlabel.setText("你选择了："+file.getName()+"文件");
+                }else if(result == fileChooser.CANCEL_OPTION){
+                    DKTXlabel.setText("没有选取");
+                }
+                ZTLstring = ZTLstring + DKTXlabel;
 
              }
             if((e.getActionCommand()).equals("检测星点")) {
@@ -248,4 +264,35 @@ import javax.swing.*;
 
         }
 }
+
+/*class JAVAFileFilter extends FileFilter{
+    String ext;
+
+    public JAVAFileFilter(String ext){
+        this.ext = ext;
+    }
+
+    public boolean accept(File file){
+        if(file.isDirectory())
+            return true;
+
+        String fileName = file.getName();
+        int index = fileName.lastIndexOf('.');
+
+        if(index>0 && index<fileName.length()-1){
+            String extension = fileName.substring(index+1).toLowerCase();
+            if(extension.equals(ext))
+                return true;
+        }
+        return false;
+    }
+
+    public String getDescription(){
+        if(ext.equals("jpg"))
+            return "JPEG File (*.jpg)";
+        if(ext.equals("tif"))
+            return "TIFF File (*.tif)";
+        return "";
+    }
+}*/
 
