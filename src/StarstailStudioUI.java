@@ -225,6 +225,50 @@ public class StarstailStudioUI implements ActionListener {
         if ((e.getActionCommand()).equals("检测星点")) {
             statusBarText = statusBarText + "\n检测星点";
             statusBarLabel.setText(statusBarText);
+            JFrame JCXDf = new JFrame("检测星点");
+            Container JCXDcont = JCXDf.getContentPane();
+            Box JCXDbasebox = Box.createVerticalBox();
+            JCXDcont.add(JCXDbasebox);
+
+            Box JCXDbox1 = Box.createHorizontalBox();
+            JLabel JCXDlabel1 = new JLabel("阈值:");
+            JTextField JCXDtext1 = new JTextField("130");
+            JCXDbox1.add(Box.createHorizontalStrut(10));
+            JCXDbox1.add(JCXDlabel1);
+            JCXDbox1.add(Box.createHorizontalStrut(10));
+            JCXDbox1.add(JCXDtext1);
+            JCXDbox1.add(Box.createHorizontalStrut(10));
+
+            JCXDbasebox.add(Box.createVerticalStrut(10));
+            JCXDbasebox.add(JCXDbox1);
+
+            JCXDbasebox.add(Box.createVerticalStrut(10));
+            JButton JCXDbutton1 = new JButton("计算星点数量");
+            JCXDbutton1.setAlignmentX(Component.CENTER_ALIGNMENT);
+            JCXDbutton1.setSize(150,30);
+            JCXDbasebox.add(JCXDbutton1);
+
+            JCXDbasebox.add(Box.createVerticalStrut(10));
+            JLabel JCXDlabel2 = new JLabel("星点的数量为？？");
+            JCXDlabel2.setAlignmentX(Component.CENTER_ALIGNMENT);
+            JCXDlabel2.setSize(150,30);
+            JCXDbasebox.add(JCXDlabel2);
+
+
+
+            JCXDbasebox.add(Box.createVerticalStrut(10));
+            Box JCXDbox3 = Box.createHorizontalBox();
+            JButton JCXDbutton2 = new JButton("确定");
+            JButton JCXDbutton3 = new JButton("取消");
+            JCXDbox3.add(JCXDbutton2);
+            JCXDbox3.add(Box.createHorizontalStrut(10));
+            JCXDbox3.add(JCXDbutton3);
+            JCXDbasebox.add(JCXDbox3);
+            JCXDbasebox.add(Box.createVerticalStrut(10));
+
+            JCXDf.setSize(200,180);
+            JCXDf.show();
+
         }
         if ((e.getActionCommand()).equals("计算位移")) {
             statusBarText = statusBarText + "计算位移";
